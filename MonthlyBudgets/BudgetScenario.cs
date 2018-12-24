@@ -18,6 +18,7 @@ GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.SPACECENTER)]
             savedNode.SetValue("EmergencyFundingEnabled", MonthlyBudgets.instance.enableEmergencyBudget, true);
             savedNode.SetValue("MasterSwitch", BudgetSettings.instance.masterSwitch, true);
             savedNode.SetValue("HardMode", BudgetSettings.instance.hardMode, true);
+            savedNode.SetValue("DontLoseIt", BudgetSettings.instance.dontLoseIt, true);
             savedNode.SetValue("ContractInterceptor", BudgetSettings.instance.contractInterceptor, true);
             savedNode.SetValue("CoverCosts", BudgetSettings.instance.coverCosts, true);
             savedNode.SetValue("StopTimeWarp", BudgetSettings.instance.stopTimewarp, true);
@@ -55,6 +56,7 @@ GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.SPACECENTER)]
             node.TryGetValue("EmergencyFundingEnabled", ref MonthlyBudgets.instance.enableEmergencyBudget);
             node.TryGetValue("MasterSwitch", ref BudgetSettings.instance.masterSwitch);
             node.TryGetValue("HardMode", ref BudgetSettings.instance.hardMode);
+            node.TryGetValue("DontLoseIt", ref BudgetSettings.instance.dontLoseIt);
             node.TryGetValue("ContractInterceptor", ref BudgetSettings.instance.contractInterceptor);
             node.TryGetValue("CoverCosts", ref BudgetSettings.instance.coverCosts);
             node.TryGetValue("StopTimeWarp", ref BudgetSettings.instance.stopTimewarp);

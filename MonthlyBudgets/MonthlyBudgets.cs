@@ -92,7 +92,10 @@ namespace MonthlyBudgets
                         emergencyBudget = Math.Round(emergencyBudget, 0);
                         Debug.Log("[MonthlyBudgets]: Diverted " + emergencyBudgetPercentage + "% of budget. BPF is now: " + emergencyBudget);
                     }
-                    Funding.Instance.AddFunds(-funds, TransactionReasons.None);
+                    if (!BudgetSettings.instance.dontLoseIt)
+                    {
+                        Funding.Instance.AddFunds(-funds, TransactionReasons.None);
+                    }
                     Funding.Instance.AddFunds(budget, TransactionReasons.None);
                     ScreenMessages.PostScreenMessage("This month's budget is " + budget.ToString("C"));
                     Debug.Log("[MonthlyBudgets]: Budget awarded: " + budget);
