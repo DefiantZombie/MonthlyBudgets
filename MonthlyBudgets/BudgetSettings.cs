@@ -12,7 +12,7 @@ namespace MonthlyBudgets
         public bool upgraded = false;
         public bool masterSwitch = true;
         public bool hardMode = false;
-        public bool dontLoseIt = false;
+        public bool useItOrLoseIt = true;
         public bool decayEnabled = false;
         public bool contractInterceptor = true;
         public bool coverCosts = false;
@@ -58,7 +58,7 @@ namespace MonthlyBudgets
                 if (masterSwitch)
                 {
                     dialog.Add(new DialogGUIToggle(() => hardMode, "Penalty for not spending entire budget?", (bool b) => { hardMode = b; }));
-                    dialog.Add(new DialogGUIToggle(() => dontLoseIt, "Use it DON'T lose it?", (bool b) => { dontLoseIt = b; }, 280.0f));
+                    dialog.Add(new DialogGUIToggle(() => useItOrLoseIt, "Use it or lose it?", (bool b) => { useItOrLoseIt = b; }));
                     dialog.Add(new DialogGUIToggle(() => contractInterceptor, "Contracts pay rep instead of funds?", (bool b) => { contractInterceptor = b; }));
                     dialog.Add(new DialogGUIToggle(() => coverCosts, "Always try to deduct costs from budget, even if current funds are higher?", (bool b) => { coverCosts = b; }));
                     dialog.Add(new DialogGUIToggle(() => stopTimewarp, "Stop Timewarp / Set KAC Alarm on budget", (bool b) => { stopTimewarp = b; }));
@@ -192,7 +192,7 @@ namespace MonthlyBudgets
             ConfigNode settings = ConfigNode.Load(savedFile);
             bool.TryParse(settings.GetValue("masterSwitch"), out masterSwitch);
             bool.TryParse(settings.GetValue("hardMode"), out hardMode);
-            bool.TryParse(settings.GetValue("dontLoseIt"), out dontLoseIt);
+            bool.TryParse(settings.GetValue("useItOrLoseIt"), out useItOrLoseIt);
             bool.TryParse(settings.GetValue("contractInterceptor"), out contractInterceptor);
             bool.TryParse(settings.GetValue("coverCosts"), out coverCosts);
             bool.TryParse(settings.GetValue("stopTimewarp"), out stopTimewarp);
