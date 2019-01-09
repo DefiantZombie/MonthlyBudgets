@@ -63,7 +63,7 @@ namespace MonthlyBudgets
                     budget = budget - (budget * (researchBudget / 100));
                 }
                 //we shouldn't take money away. If the player holds more than the budget, just don't award.
-                if (budget <= offsetFunds)
+                if (budget <= offsetFunds && BudgetSettings.instance.useItOrLoseIt)
                 {
                     ScreenMessages.PostScreenMessage("We can't justify extending your budget this month");
                     if (budget < costs || !BudgetSettings.instance.coverCosts)
